@@ -1,0 +1,8 @@
+## Interface: 40000
+## Title: RaidHide
+## Author: StoffeTiX @ Ticstyle
+## Version: 1.2.40000
+## Website: http://www.ticstyle.se/raidhide
+## Donate: http://donate.ticstyle.com/
+## Notes: Hides Blizzard's raid frames.                                 Author: |cff7f7fffStoffeTiX|r
+RaidHide.xml

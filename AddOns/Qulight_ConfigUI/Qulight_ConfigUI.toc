@@ -1,0 +1,14 @@
+## Interface: 40100
+## Title: Qulight Config UI
+## Notes: Someday there is only pantesaur left.
+## Author: Tohveli
+## Editor: Tukz
+## Version: 1.11
+## SavedVariables: QulightConfigAll, QulightConfigSettings
+## SavedVariablesPerCharacter: QulightConfig
+## RequiredDeps: QulightUI
+
+local\english.lua
+local\russian.lua
+
+core.lua

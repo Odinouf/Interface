@@ -1,0 +1,4 @@
+Adirelle:
+	- Removed pre-LibDispellable code that was mistakenly merged with 1.5.
+	- Updated globals using my brand new checkGlobals script.
+	- Added .gitattributes to remove trailing whitespaces on commit.

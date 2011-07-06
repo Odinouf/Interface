@@ -1,0 +1,20 @@
+1x ncHoverBind-1.1\ncHoverBind.lua:200: attempt to concatenate field 'name' (a nil value)
+ncHoverBind-1.1\ncHoverBind.lua:36: in function <ncHoverBind\ncHoverBind.lua:36>
+
+Locals:
+self = ncHoverBind {
+ 0 = <userdata>
+ Activate = <function> @ ncHoverBind\ncHoverBind.lua:211:
+ loaded = 1
+ Update = <function> @ ncHoverBind\ncHoverBind.lua:40:
+ spellmacro = "SPELL"
+ Deactivate = <function> @ ncHoverBind\ncHoverBind.lua:215:
+ enabled = true
+ button = SpellButton8 {}
+ Listener = <function> @ ncHoverBind\ncHoverBind.lua:168:
+ HideFrame = <function> @ ncHoverBind\ncHoverBind.lua:206:
+ texture = <unnamed> {}
+}
+key = "L"
+
+  ---

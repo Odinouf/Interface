@@ -1,0 +1,15 @@
+------------------------------------------------------------------------
+r51 | dridzt | 2011-06-30 02:19:56 +0000 (Thu, 30 Jun 2011) | 1 line
+Changed paths:
+   M /trunk/ChatSounds.lua
+   M /trunk/ChatSounds.toc
+
+- .toc update, compatible with WoW 4.2 (Firelands)
+------------------------------------------------------------------------
+r50 | dridzt | 2011-05-02 12:40:28 +0000 (Mon, 02 May 2011) | 1 line
+Changed paths:
+   M /trunk/ChatSounds.lua
+   M /trunk/ChatSounds.toc
+
+- toc update, compatible with WoW 4.1
+------------------------------------------------------------------------

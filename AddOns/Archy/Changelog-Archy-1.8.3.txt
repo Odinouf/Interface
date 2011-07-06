@@ -1,0 +1,45 @@
+tag 1.8.3
+76f7ac47e52e7deaf8c98b6a06cd3e1ebeebed23
+James D. Callahan III <darkenelf@gmail.com>
+2011-06-17 00:59:39 -0500
+
+New release.
+
+
+--------------------
+
+James D. Callahan III:
+	- Removed roughly 1kB of garbage-generation when showing the LDB tooltip by updating values in a single table for progress bars.
+	- Archy:ShowDigSiteTooltip() had TWO "self" parameters. /facepalm
+	- Fixed some brain damage in the LDB tooltip behavior.
+	- Removed the "surveyNum" field from POIs since it was never used, and removed the parameter of the same name from GetSurveyPOI() and CreateMinimapPOI() - the latter of which will probably be removed since it's not called anywhere.
+	- Fixed config update snafu.
+	- Never nil the survey_location table; set its fields to 0 instead.
+	- More UpdateRaceArtifact() logic cleanup.
+	- Don't store false in artifact table fields - nil works identically for our purposes and doesn't use memory.
+	- Make SolveArtifact() behave more as intended - based on code submitted by Saur.
+	- Corrected the announcement of solvable artifacts and keystones, based on code submitted by Saur.
+	- Fixed some mild logic retardation in SolveArtifact() - pointed out by Saur.
+	- Generate less garbage by using FontString:SetFormattedText() where appropriate rather than concatenations.
+	- Normalized all table fields (table.field instead of table['field']) and, of course, more cleanup.
+	- Removed ClearMinimapSurveyColors() - its code now resides in UpdateMinimapPOIs()
+	- Code re-formatting.
+	- MOAR upvalues!
+	- Cleaned up the if-else-chain-Hell which was Archy:ConfigUpdated()
+	- The timer handle is no longer polluting the global namespace.
+	- Logic cleanups and added more upvalue usage.
+	- Simplified the code for HasArchaeology(), IsTaintable(), and ShouldBeHidden()
+	- Removed UpdateMinimapSurveyColors() - its code now resides in Archy:PlayerCastSurvey(), which has been cleaned up to actually make sense.
+	- Fixed ticket #262; minor cleanup in the process.
+	- Obvious comments are obvious.
+	- Removed an extra %s in a format call.
+	- String, math, and table cleanups.
+	- This function is no longer global. Yay.
+	- Table fields and formatting cleanups. Variable name clarifications. Minor logic tweaks.
+	- Get rid of upvalues for Blizzard functions.
+	- Grab things from the localized _G. Renamed some variables. Minor cleanup.
+	- Clean up some declarations for readability.
+	- Upvalue some Lua API.
+	- Minor string formatting cleanup.
+	- Ensure that yellow and green are at least 0 and never nil.
+	- Fixed ticket #265.

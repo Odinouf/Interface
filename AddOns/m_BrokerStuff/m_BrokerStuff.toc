@@ -1,0 +1,32 @@
+## Interface: 40100
+## Author: Monolit
+## Version: 1.4.2
+## Title: mono|cffffffffBrokerStuff|r
+## Notes: Broker plugins compilation
+## X-Credits: All the original authors: Funkydude(Durability), p3lim(Equipment), Curney(NameToggle), Torhal(Volumizer)
+## SavedVariables: MoneyDB, VolumizerPresets
+## SavedVariablesPerCharacter: Broker_EquipmentDB, HatterDB, SB_MEM_KILL 
+## OptionalDeps: !BaudErrorFrame
+
+libs\LibStub.lua
+libs\tekKonfigScroll.lua
+libs\tekKonfigAboutPanel.lua
+libs\CallbackHandler-1.0.lua
+libs\LibDataBroker-1.1.lua
+libs\AceTimer-3.0.lua
+libs\LibCargoShip-2.1.lua
+
+elements\Ampere.lua
+elements\Broker_BaudErrorFrame.lua
+elements\Broker_Durability.lua
+elements\Broker_Equipment.lua
+elements\Broker_FPS.lua
+elements\Broker_Hatter.lua
+elements\Broker_Latency.lua
+elements\Broker_Memory.lua
+elements\Broker_NameToggle.lua
+elements\Volumizer.lua
+elements\Broker_Equipment.lua
+elements\Broker_Money.lua
+
+layout.lua

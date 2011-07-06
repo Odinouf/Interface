@@ -1,0 +1,27 @@
+2.4a2 | DefectiveUser | 2010-10-22
+- Changed how icon textures are created, hopefully this makes their display more robust
+
+2.4a | DefectiveUser | 2010-10-21
+- Compatibility with 4.0.1
+- TOC updated
+
+2.0a2 | DefectiveUser | 2009-12-22
+- Fixed a broken call to libTab:tabSetGroupFrame() that resulted in LUA error when accessing the raid browser from the raid frame in the social interface
+
+2.0a1 | DefectiveUser | 2009-12-22
+- Fixed a test variable used to initialize the library, doesn’t affect usability but I feel better in myself :)
+
+2.0a | DefectiveUser | 2009-12-20
+- All core functions moved to library
+- Changed licensing for library
+- Changed the way frames are hooked making it more robust
+- Fixed an issue where tabs would not show up when frames called by ShowUIPanel()
+- Fixed a bad hook to RaidFrameNotInRaidRaidBrowserButton OnClick script that could overwrite other hooks
+- Fixed an issue where tabs would hide other UI elements
+- Tabs now "push" other frames over when open
+- Added battleground tab
+- Added versioning control for library
+
+1.0a | DefectiveUser | 2009-12-10
+- First release
+- Changed file name and some variables

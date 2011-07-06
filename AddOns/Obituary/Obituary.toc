@@ -1,0 +1,22 @@
+## Author: Throngy of Thunderhorn EU
+## Interface: 40200
+## Notes: Notifies you of party/raid member deaths, whodunnit, and how.
+## Title: Obituary
+## Version: 0.4.6-beta
+## X-Revision: 48
+## X-Feedback: http://wow.curseforge.com/addons/obituary/
+## X-Curse-Packaged-Version: 0.4.6-beta
+## X-Curse-Project-Name: Obituary
+## X-Curse-Project-ID: obituary
+## X-Curse-Repository-ID: wow/obituary/mainline
+
+## SavedVariables: ObituaryDB
+
+## OptionalDeps: Ace3, LibStub, LibSink-2.0
+## X-Embeds: Ace3, LibStub, LibSink-2.0
+
+## X-Category: Raid, Combat
+
+embeds.xml
+
+Obituary.lua

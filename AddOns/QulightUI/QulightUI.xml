@@ -1,0 +1,67 @@
+﻿<Ui xmlns="http://www.blizzard.com/wow/ui/">
+
+	<Script file="Config\LibSharedMedia.lua"/>
+	<Script file="Config\variables.lua"/>
+	<Script file="Config\config.lua"/>
+	<Script file="Config\configui.lua"/>
+	<Script file="Config\movers.lua"/>
+	<Include file="Addonskins\load_addonskins.xml"/>
+	
+	<Include file="Libs\oUF\oUF.xml"/>
+	<Include file="Libs\LibSharedMedia-3.0\lib.xml"/>
+	<Include file="UnitFrames\uf.xml"/>
+	<Include file="UnitFrames\template.xml"/>
+	
+	<Script file="Libs\CallbackHandler-1.0\CallbackHandler-1.0.lua"/>
+	<Script file="Libs\LibStub.lua"/>
+	<Script file="Libs\LibCooldown.lua"/>
+	
+	<Script file="Main\Core.lua"/>
+	<Script file="Main\Minimap.lua"/>
+	<Script file="Main\Map.lua"/>
+	<Script file="Main\SkinFrame.lua"/>
+	<Script file="Main\Tooltip.lua"/>
+	<Script file="Main\Chat.lua"/>
+	<Script file="Main\Bags.lua"/>
+	<Script file="Main\Cooldown.lua"/>
+	<Script file="Main\Buffs.lua"/>
+	<Script file="Main\Bind.lua"/>
+	<Script file="Main\Nameplates.lua"/>
+	<Script file="Main\Loot.lua"/>
+	<Script file="Main\Lootroll.lua"/>
+	<Script file="Main\Mail.lua"/>
+		
+	<Script file="Misc\ClassTimer.lua"/>
+	<Script file="Misc\Filger.lua"/>
+	<Script file="Misc\Addonmanager.lua"/>
+	<Script file="Misc\RaidUtility.lua"/>
+	<Script file="Misc\Togglemenu.lua"/>
+	<Script file="Misc\MarkBar.lua"/>
+	<Script file="Misc\Reminder.lua"/>
+	<Script file="Misc\raidBuffReminder.lua"/>
+	<Script file="Misc\CooldownFlash.lua"/>
+	
+	<Script file="Datatext\Durability.lua"/>
+	<Script file="Datatext\System.lua"/>
+	<Script file="Datatext\Friend.lua"/>
+	<Script file="Datatext\Gold.lua"/>
+	<Script file="Datatext\Guild.lua"/>
+	<Script file="Datatext\Bags.lua"/>
+	<Script file="Datatext\Time.lua"/>
+	
+	<Script file="Actionbars\Hide.lua"/>
+	<Script file="Actionbars\Bar1.lua"/>
+	<Script file="Actionbars\Bar2.lua"/>
+	<Script file="Actionbars\Bar3.lua"/>
+	<Script file="Actionbars\Bar4.lua"/>
+	<Script file="Actionbars\Bar5.lua"/>
+	<Script file="Actionbars\BarPet.lua"/>
+	<Script file="Actionbars\BarShift.lua"/>
+	<Script file="Actionbars\BarTotem.lua"/>
+	<Script file="Actionbars\BarVehicle.lua"/>
+	<Script file="Actionbars\Style.lua"/>
+	<Script file="Actionbars\Others.lua"/>
+	<Script file="Actionbars\Movers.lua"/>
+	<Script file="Actionbars\Microbar.lua"/>
+	<Script file="Actionbars\Range.lua"/>
+</Ui>

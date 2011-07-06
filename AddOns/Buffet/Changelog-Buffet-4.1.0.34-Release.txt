@@ -1,0 +1,22 @@
+tag 4.1.0.34-Release
+221a22f6093574bf9418a35bb80d8260d1992478
+tekkub :bear:  <tekkub@gmail.com>
+2011-05-14 21:17:53 -0600
+
+Weekly build
+
+
+--------------------
+
+tekkub :bear: :
+	- Weekly build 4.1.0.34-Release
+	- Update changelog for 4.1.0.34-Release
+	- Updating TOC to 40100
+tekkub:
+	- Update changelog for 4.0.0.33-Beta
+	- Weekly build 4.0.0.33-Beta
+	- Missed a food
+	- Move data strings off to their own file for easier management and merging
+	- Update changelog for 4.0.0.32-Beta
+	- Weekly build 4.0.0.32-Beta
+	- Cat food (and water and pots and bandaids and...)

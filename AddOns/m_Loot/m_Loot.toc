@@ -1,0 +1,8 @@
+﻿## Interface: 40200
+## Title: mono|cffffffffLoot|r
+## Version: 2.1
+## Notes: Butsu + MasterLoot + sGroupLoot compilation, so credits to the original authors
+
+cfg.lua
+m_Loot.lua
+m_LootGroup.lua

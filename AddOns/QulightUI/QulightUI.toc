@@ -1,0 +1,13 @@
+## Interface: 40100
+## Title: QulightUI
+## Notes: QulightUI
+## Credits to: Tukz, Dawn, Shestak, Haste, Roth, P3lim, Monolit, AlleyKat.
+## Author: Qulight
+## Version: 3.5.4c
+## X-oUF: oUF
+## SavedVariables: QulightData
+## SavedVariablesPerCharacter: QulightDataPerChar
+## OptionalDeps: Qulight_ConfigUI, Recount, Omen, Skada, KLE, DBM, TinyDPS
+## X-oUF: oUF
+
+QulightUI.xml

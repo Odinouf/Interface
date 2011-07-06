@@ -1,0 +1,7 @@
+## Interface: 40000
+## Title: tabDB (Tabbed Dungeon Browser) v 2.4a2
+## Notes: Adds a Raid Browser tab to the Dungeon Finder and vice versa.
+## Author: Aaron Mast
+
+libs\libTab-1.4a2.xml
+tabDB.lua

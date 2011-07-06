@@ -1,0 +1,8 @@
+v1.2.40000:
+* Adjustments made to the Slash Commands.
+
+v1.1.40000:
+* Documentation updates.
+
+v1.0.40000:
+* Addon created.

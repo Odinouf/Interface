@@ -1,0 +1,5 @@
+## Interface: 40000
+## Title: AutoCombatLog
+## Author: Elge
+
+AutoCombatLog.lua

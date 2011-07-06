@@ -1,0 +1,12 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file='LoadSkins.lua' />
+	
+	<Script file='skins\KLE.lua' />
+	
+	
+	<Script file='skins\Quartz.lua' />
+	<Script file='skins\dbm.lua' />
+	<Script file='skins\pallypower.lua' />
+	<Script file='skins\Skada.lua' />
+	<Script file='skins\BigWigs.lua' />
+</Ui>

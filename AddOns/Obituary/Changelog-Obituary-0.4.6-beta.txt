@@ -1,0 +1,14 @@
+------------------------------------------------------------------------
+r49 | graemef | 2011-07-01 20:04:51 +0000 (Fri, 01 Jul 2011) | 1 line
+Changed paths:
+   A /tags/0.4.6-beta (from /trunk:48)
+
+Tagging as 0.4.6-beta
+------------------------------------------------------------------------
+r48 | graemef | 2011-06-30 18:26:58 +0000 (Thu, 30 Jun 2011) | 1 line
+Changed paths:
+   M /trunk/Obituary.lua
+   M /trunk/Obituary.toc
+
+Fixed compatibility with 4.2 - many thanks to morelore for the patch!
+------------------------------------------------------------------------

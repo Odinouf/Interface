@@ -1,0 +1,16 @@
+## Interface: 40200
+## Notes: A combination of little UI tweaks. 
+## Title: mono|cffffffffTweaks|r
+## Author: Monolit
+## Version: 4.3
+## OptionalDeps: DBM-Core, NugRunning
+## Credits: Special thanks to Adys, ALZA, Silverwind and Affli
+
+cfg.lua
+Settings.lua
+Mountz.lua
+SpellID.lua
+StyleDBM.lua
+StyleNRun.lua
+XP.lua
+shoutCD.lua

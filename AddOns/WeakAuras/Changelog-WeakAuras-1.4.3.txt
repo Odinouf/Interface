@@ -1,0 +1,75 @@
+------------------------------------------------------------------------
+r170 | mirrormn | 2011-06-29 10:41:04 +0000 (Wed, 29 Jun 2011) | 2 lines
+Changed paths:
+   A /tags/1.4.3 (from /trunk:169)
+
+Tagging as 1.4.3
+Fixed Multi-target Auras for 4.2 Combat Log Events
+------------------------------------------------------------------------
+r169 | mirrormn | 2011-06-29 10:40:12 +0000 (Wed, 29 Jun 2011) | 1 line
+Changed paths:
+   M /trunk/WeakAuras.lua
+
+Fixed Multi-target Auras for 4.2 Combat Log Events
+------------------------------------------------------------------------
+r167 | mirrormn | 2011-06-27 08:23:48 +0000 (Mon, 27 Jun 2011) | 2 lines
+Changed paths:
+   M /trunk/Localization-deDE.lua
+   M /trunk/Localization-esES.lua
+   M /trunk/Localization-frFR.lua
+   M /trunk/Localization-ruRU.lua
+   M /trunk/Localization-zhTW.lua
+   M /trunk/WeakAuras.toc
+   M /trunk/WeakAurasModelPaths/WeakAurasModelPaths.toc
+   M /trunk/WeakAurasOptions/WeakAurasOptions.toc
+   M /trunk/WeakAurasTutorials/WeakAurasTutorials.toc
+
+Updated .toc's to 4.2
+Added localized Notes to all .toc's
+------------------------------------------------------------------------
+r166 | mirrormn | 2011-06-27 07:58:50 +0000 (Mon, 27 Jun 2011) | 7 lines
+Changed paths:
+   M /trunk/Prototypes.lua
+   M /trunk/WeakAuras.lua
+   M /trunk/WeakAurasOptions/WeakAurasOptions.lua
+
+Updated Combat Log Event triggers for 4.2. If you have Custom Triggers that use the COMBAT_LOG_EVENT_UNFILTERED event, you will have to update them manually. Instructions on how to do so can be found in the WeakAuras forum on WoWAce.
+Fixed a bug where Item Count triggers were not updating correctly with items with charges.
+Fixed a bug where Action Usable and Cooldown triggers were not updating correctly in some circumstances involving Death Runes.
+Fixed a bug where Death Knight Rune triggers were not getting proper icons on login.
+Fixed a bug where the Glow Frame Choose button (in the Actions tab) was not working with groups.
+Fixed a bug which prevented Custom Trigger code fields of additional triggers from being edited in the Code Editor.
+Fixed some buggy behavior related to resizing the configuration window.
+------------------------------------------------------------------------
+r165 | commandersirow | 2011-06-22 09:54:05 +0000 (Wed, 22 Jun 2011) | 1 line
+Changed paths:
+   M /trunk/Prototypes.lua
+
+- Action Usable triggers should now work more consistent for Death Knights
+------------------------------------------------------------------------
+r164 | commandersirow | 2011-06-18 19:39:04 +0000 (Sat, 18 Jun 2011) | 1 line
+Changed paths:
+   M /trunk/Types.lua
+
+- Added missing Power Auras textures (Aura46, Aura47, Aura51, Aura131)
+------------------------------------------------------------------------
+r163 | mirrormn | 2011-06-07 04:43:20 +0000 (Tue, 07 Jun 2011) | 1 line
+Changed paths:
+   M /trunk/WeakAuras.lua
+
+The Specific Unit option for auras should now work again.
+------------------------------------------------------------------------
+r162 | mirrormn | 2011-05-29 21:33:33 +0000 (Sun, 29 May 2011) | 1 line
+Changed paths:
+   M /trunk/Prototypes.lua
+
+Made Death Knight Rune triggers work a little better with Progress Bars.
+------------------------------------------------------------------------
+r161 | mirrormn | 2011-05-28 20:22:28 +0000 (Sat, 28 May 2011) | 2 lines
+Changed paths:
+   M /trunk/Prototypes.lua
+   M /trunk/WeakAuras.lua
+
+Inverse option added to Action Usable triggers
+Group aura tooltips now correctly apply class colors to cross-realm names
+------------------------------------------------------------------------

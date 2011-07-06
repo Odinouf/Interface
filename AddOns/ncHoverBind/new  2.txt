@@ -1,0 +1,64 @@
+1x ncHoverBind-1.1\ncHoverBind.lua:53: GetSpellBookItemName(): Invalid spell slot
+ncHoverBind-1.1\ncHoverBind.lua:53: in function `Update'
+ncHoverBind-1.1\ncHoverBind.lua:266: in function <ncHoverBind\ncHoverBind.lua:266>
+<in C code>: ?
+
+Locals:
+self = ncHoverBind {
+ 0 = <userdata>
+ Activate = <function> @ ncHoverBind\ncHoverBind.lua:211:
+ loaded = 1
+ Update = <function> @ ncHoverBind\ncHoverBind.lua:40:
+ spellmacro = "SPELL"
+ Deactivate = <function> @ ncHoverBind\ncHoverBind.lua:215:
+ enabled = true
+ button = SpellButton8 {}
+ Listener = <function> @ ncHoverBind\ncHoverBind.lua:168:
+ HideFrame = <function> @ ncHoverBind\ncHoverBind.lua:206:
+ texture = <unnamed> {}
+}
+b = SpellButton8 {
+ 0 = <userdata>
+ SpellSubName = SpellButton8SubSpellName {}
+ TrainTextBackground = SpellButton8TrainTextBackground {}
+ UnlearnedFrame = SpellButton8UnlearnedSlotFrame {}
+ RequiredLevelString = SpellButton8RequiredLevelString {}
+ TrainFrame = SpellButton8TrainSlotFrame {}
+ TextBackground = SpellButton8TextBackground {}
+ TrainBook = $textureTrainBook {}
+ FlyoutArrow = SpellButton8FlyoutArrow {}
+ IconTextureBg = SpellButton8IconTextureBg {}
+ SeeTrainerString = SpellButton8SeeTrainerString {}
+ SpellName = SpellButton8SpellName {}
+}
+spellmacro = "SPELL"
+(*temporary) = SpellButton8 {
+ 0 = <userdata>
+ SpellSubName = SpellButton8SubSpellName {}
+ TrainTextBackground = SpellButton8TrainTextBackground {}
+ UnlearnedFrame = SpellButton8UnlearnedSlotFrame {}
+ RequiredLevelString = SpellButton8RequiredLevelString {}
+ TrainFrame = SpellButton8TrainSlotFrame {}
+ TextBackground = SpellButton8TextBackground {}
+ TrainBook = $textureTrainBook {}
+ FlyoutArrow = SpellButton8FlyoutArrow {}
+ IconTextureBg = SpellButton8IconTextureBg {}
+ SeeTrainerString = SpellButton8SeeTrainerString {}
+ SpellName = SpellButton8SpellName {}
+}
+bind = ncHoverBind {
+ 0 = <userdata>
+ Activate = <function> @ ncHoverBind\ncHoverBind.lua:211:
+ loaded = 1
+ Update = <function> @ ncHoverBind\ncHoverBind.lua:40:
+ spellmacro = "SPELL"
+ Deactivate = <function> @ ncHoverBind\ncHoverBind.lua:215:
+ enabled = true
+ button = SpellButton8 {}
+ Listener = <function> @ ncHoverBind\ncHoverBind.lua:168:
+ HideFrame = <function> @ ncHoverBind\ncHoverBind.lua:206:
+ texture = <unnamed> {}
+}
+localmacros = 0
+
+  ---

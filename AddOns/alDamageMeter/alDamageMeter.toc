@@ -1,0 +1,8 @@
+## Interface: 40200
+## Author: Allez
+## Title: alDamageMeter
+## Version: 40000.4
+## Notes: Damage meter
+
+embeds.xml
+alDamageMeter.lua

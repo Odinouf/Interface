@@ -1,0 +1,10 @@
+## Interface: 40100
+## Title: Icicle
+## Version: 0.8
+## Author: Thoth
+
+IcicleSpec.lua
+IcicleCcs.lua
+IcicleCds.lua
+Icicle.lua
+

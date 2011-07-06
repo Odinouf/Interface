@@ -1,0 +1,43 @@
+﻿## Interface: 40200
+## Title: Ovale Spell Priority
+## Notes: Show the icon of the next spell to cast
+## Notes-frFR: Affiche l'icône du prochain sort à lancer
+## Author: Sidoine
+## Version: 4.2.0
+## OptionalDeps: Ace3, ButtonFacade, Recount, Skada, LibBabble-CreatureType-3.0, LibRangeCheck-2.0
+## SavedVariables: OvaleDB
+## SavedVariablesPerCharacter: OvaleDBPC
+## X-Category: Combat
+## X-Embeds: Ace3
+
+embeds.xml
+
+Locale-frFR.lua
+Locale-deDE.lua
+Locale-enUS.lua
+Locale-zhTW.lua
+Locale-ruRU.lua
+Ovale.lua
+Condition.lua
+OvaleEquipement.lua
+OvaleIcone.lua
+OvaleIcone.xml
+OvaleFrame.lua
+OvaleCompile.lua
+OvaleRecount.lua
+OvaleSkada.lua
+OvaleSwing.lua
+defaut\Chaman.lua
+defaut\Chasseur.lua
+defaut\Demoniste.lua
+defaut\Druide.lua
+defaut\Guerrier.lua
+defaut\Mage.lua
+defaut\Paladin.lua
+defaut\Pretre.lua
+defaut\Voleur.lua
+defaut\Chevalier.lua
+-- X-Curse-Packaged-Version: 4.2.0
+-- X-Curse-Project-Name: Ovale Spell Priority
+-- X-Curse-Project-ID: ovale
+-- X-Curse-Repository-ID: wow/ovale/mainline
