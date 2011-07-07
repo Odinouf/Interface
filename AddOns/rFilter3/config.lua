@@ -411,9 +411,10 @@
         spec = nil, 
         spellid = 33876, --mangle feral
         spelllist = { --check a list instead because other classes can do the same
-          [1] = 33876,
+          [1] = 33876, --cat
           [2] = 16511, 
           [3] = 46857,
+		  [4] = 33878, --bear
         },
         size = 42,
         pos = { a1 = "CENTER", a2 = "CENTER", af = "UIParent", x = 222, y = -20},
@@ -434,7 +435,7 @@
         },
       },
 	  [3] = {
-        spec = nil, 
+        spec = 1, --only in cat
         spellid = 1822, --rake
         --spelllist = { --check a list instead because other classes can do the same
         --  [1] = 33876,
@@ -460,7 +461,7 @@
         },
       },
 	  [4] = {
-        spec = nil, 
+        spec = 1, --only in cat
         spellid = 1079, --rip
         --spelllist = { --check a list instead because other classes can do the same
         --  [1] = 33876,
@@ -485,6 +486,34 @@
           },
         },
       },
+	  
+	  [4] = {
+        spec = 2, --only in bear
+        spellid = 33745, --lacerate
+        --spelllist = { --check a list instead because other classes can do the same
+        --  [1] = 33876,
+        --  [2] = 16511, 
+        --  [3] = 46857,
+        --},
+        size = 42,
+        pos = { a1 = "CENTER", a2 = "CENTER", af = "UIParent", x = 306, y = -20},
+        unit = "target",
+        validate_unit = true, --only show the icon if unit is found
+        hide_ooc      = true, --hide icon out of combat
+        ismine = true,
+        desaturate = true,
+        alpha = {
+          found = {
+            frame = 1,
+            icon = 1,
+          },
+          not_found = {
+            frame = 0.4,
+            icon = 0.6,          
+          },
+        },
+      },
+	  
 	}
   
   --Cooldown List
