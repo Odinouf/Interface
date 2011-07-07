@@ -487,7 +487,7 @@
         },
       },
 	  
-	  [4] = {
+	  [5] = {
         spec = 2, --only in bear
         spellid = 33745, --lacerate
         --spelllist = { --check a list instead because other classes can do the same
@@ -497,6 +497,34 @@
         --},
         size = 42,
         pos = { a1 = "CENTER", a2 = "CENTER", af = "UIParent", x = 306, y = -20},
+        unit = "target",
+        validate_unit = true, --only show the icon if unit is found
+        hide_ooc      = true, --hide icon out of combat
+        ismine = true,
+        desaturate = true,
+        alpha = {
+          found = {
+            frame = 1,
+            icon = 1,
+          },
+          not_found = {
+            frame = 0.4,
+            icon = 0.6,          
+          },
+        },
+      },
+	  
+	  
+	  [6] = {
+        spec = 2, --only in bear
+        spellid = 99, --demo roar
+        --spelllist = { --check a list instead because other classes can do the same
+        --  [1] = 33876,
+        --  [2] = 16511, 
+        --  [3] = 46857,
+        --},
+        size = 42,
+        pos = { a1 = "CENTER", a2 = "CENTER", af = "UIParent", x = 264, y = -20},
         unit = "target",
         validate_unit = true, --only show the icon if unit is found
         hide_ooc      = true, --hide icon out of combat
