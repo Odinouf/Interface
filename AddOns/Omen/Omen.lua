@@ -550,7 +550,7 @@ function Omen:PLAYER_LOGIN()
 				tt:AddLine("|cffffff00" .. L["Right-click|r to open the options menu"])
 			end,
 		})
-		if LDBIcon and not IsAddOnLoaded("Broker2FuBar") and not IsAddOnLoaded("FuBar") then
+		if LDBIcon and not LibStub:GetLibrary("LibFuBarPlugin-3.0", true) then
 			LDBIcon:Register("Omen", OmenLauncher, db.MinimapIcon)
 		end
 	end

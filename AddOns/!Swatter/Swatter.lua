@@ -1,6 +1,6 @@
 --[[
 	Swatter - An AddOn debugging aid for World of Warcraft.
-	Version: 3.2.4 (<%codename%>)
+	Version: 5.12.5198 (QuirkyKiwi)
 	Revision: $Id: Swatter.lua 305 2011-05-18 08:01:16Z brykrys $
 	URL: http://auctioneeraddon.com/dl/Swatter/
 	Copyright (C) 2006 Norganna
@@ -41,7 +41,7 @@ Swatter = {
 	HISTORY_SIZE = 100,
 }
 
-Swatter.Version="3.2.4"
+Swatter.Version="5.12.5198"
 if (Swatter.Version == "<%".."version%>") then
 	Swatter.Version = "5.1.DEV"
 end

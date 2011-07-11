@@ -1,4 +1,8 @@
 ﻿## Interface: 40200
+## X-Curse-Packaged-Version: r39
+## X-Curse-Project-Name: LibCandyBar-3.0
+## X-Curse-Project-ID: libcandybar-3-0
+## X-Curse-Repository-ID: wow/libcandybar-3-0/mainline
 
 ## Title: Lib: LibCandyBar-3.0
 ## Notes: Timer bars with that extra sweetness.
@@ -9,7 +13,3 @@ embeds.xml
 
 lib.xml
 
--- X-Curse-Packaged-Version: r39
--- X-Curse-Project-Name: LibCandyBar-3.0
--- X-Curse-Project-ID: libcandybar-3-0
--- X-Curse-Repository-ID: wow/libcandybar-3-0/mainline

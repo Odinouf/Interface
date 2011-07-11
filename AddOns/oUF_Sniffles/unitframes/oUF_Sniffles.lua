@@ -663,17 +663,23 @@ if cfg.enablecastbars == true then
 		self.Castbar = CreateFrame('StatusBar', nil, self)
 			self.Castbar:SetSize(Scale(cfg.castbarwidth), Scale(cfg.castbarheight))
 			self.Castbar:SetStatusBarTexture(med.blank)
-			self.Castbar:SetScale(1)
+			if (unit == 'target') then 
+				self.Castbar:SetScale(1.5)
+			--elseif (unit == 'focus') then
+			--	self.Castbar:SetScale(0.5)
+			else
+				self.Castbar:SetScale(1)
+			end
 			self.Castbar:SetStatusBarColor(unpack(cfg.castbarcolor))
 			
 			if (unit == 'target') then
 				--self.Castbar:SetPoint(cfg.targetcastbarpos[1], self, cfg.targetcastbarpos[2], cfg.targetcastbarpos[3])
-				self.Castbar:SetPoint("CENTER", UIParent, 0, 0)
+				self.Castbar:SetPoint("CENTER", UIParent, 0, 100)
 			elseif (unit == 'player') then
 				--self.Castbar:SetPoint(cfg.playercastbarpos[1], self, cfg.playercastbarpos[2], cfg.playercastbarpos[3])
 				self.Castbar:SetPoint("CENTER", UIParent, 0, -100)
-			elseif (unit == 'focus') then
-				self.Castbar:SetPoint(cfg.focuscastbarpos[1], self, cfg.focuscastbarpos[2], cfg.focuscastbarpos[3])
+			--elseif (unit == 'focus') then
+			--	self.Castbar:SetPoint(cfg.focuscastbarpos[1], self, cfg.focuscastbarpos[2], cfg.focuscastbarpos[3])
 			end
 		
 			CreateBorder(self.Castbar, 12, 1, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3)

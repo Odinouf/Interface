@@ -2,7 +2,7 @@ local addon = LibStub("AceAddon-3.0"):NewAddon("oRA3", "AceHook-3.0", "AceEvent-
 local CallbackHandler = LibStub("CallbackHandler-1.0")
 _G.oRA3 = addon
 
-addon.VERSION = tonumber(("$Revision: 475 $"):sub(12, -3))
+addon.VERSION = tonumber(("$Revision: 505 $"):sub(12, -3))
 
 local L = LibStub("AceLocale-3.0"):GetLocale("oRA3")
 
@@ -91,12 +91,15 @@ local db
 local defaults = {
 	profile = {
 		positions = {
-			
+
 		},
 		showHelpTexts = true,
 		toggleWithRaid = true,
 		lastSelectedPanel = nil,
 		lastSelectedList = nil,
+		ensureRepair = false,
+		repairFlagStorage = {},
+		repairAmountStorage = {},
 		open = false,
 	}
 }
@@ -122,12 +125,20 @@ local function giveOptions()
 					order = 1,
 					width = "full",
 				},
+				ensureRepair = {
+					type = "toggle",
+					name = colorize(L["Ensure guild repairs are enabled for all ranks present in raid"]),
+					desc = L.ensureRepairDesc,
+					descStyle = "inline",
+					order = 2,
+					width = "full",
+				},
 				showHelpTexts = {
 					type = "toggle",
 					name = colorize(L["Show interface help"]),
 					desc = L.showHelpTextsDesc,
 					descStyle = "inline",
-					order = 2,
+					order = 3,
 					width = "full",
 				},
 				slashCommands = {
@@ -135,7 +146,7 @@ local function giveOptions()
 					name = L["Slash commands"],
 					width = "full",
 					inline = true,
-					order = 3,
+					order = 4,
 					args = {
 						slashCommandHelp = {
 							type = "description",
@@ -147,9 +158,59 @@ local function giveOptions()
 			}
 		}
 	end
-	
+
 	return options
 end
+
+-----------------------------------------------------------------------
+-- Ensure guild repairs
+--
+
+local onGroupChanged, onShutdown = nil, nil
+do
+	local function sysprint(msg) print("|cffffff00" .. msg .. "|r") end
+
+	local processedRanks = {}
+	local ilvl = nil
+	function onGroupChanged(event, status, members)
+		if not db.ensureRepair or not addon:InRaid() or not addon:IsPromoted() or not IsGuildLeader() then return end
+		if not ilvl then ilvl = GetAverageItemLevel() end -- I am so smrt.. ?!
+		for i, v in next, members do
+			local rankIndex = guildMemberList[v]
+			if rankIndex and not processedRanks[rankIndex] then
+				processedRanks[rankIndex] = true
+				GuildControlSetRank(rankIndex)
+				local repair = select(15, GuildControlGetRankFlags())
+				db.repairFlagStorage[rankIndex] = repair
+				if not repair then
+					sysprint(L.repairEnabled:format(guildRanks[rankIndex]))
+					GuildControlSetRankFlag(15, true)
+				end
+				local maxAmount = GetGuildBankWithdrawGoldLimit()
+				db.repairAmountStorage[rankIndex] = maxAmount
+				if not maxAmount or maxAmount == 0 then
+					SetGuildBankWithdrawGoldLimit(ilvl or 300)
+				end
+			end
+		end
+	end
+
+	function onShutdown(event, status)
+		if not db.ensureRepair or not IsGuildLeader() then return end
+		for rankIndex in pairs(processedRanks) do
+			GuildControlSetRank(rankIndex)
+			GuildControlSetRankFlag(15, db.repairFlagStorage[rankIndex])
+			SetGuildBankWithdrawGoldLimit(db.repairAmountStorage[rankIndex])
+		end
+		wipe(db.repairAmountStorage)
+		wipe(db.repairFlagStorage)
+		wipe(processedRanks)
+	end
+end
+
+------------------------------------------------------------------------
+-- Init
+--
 
 function addon:OnInitialize()
 	self.db = LibStub("AceDB-3.0"):New("oRA3DB", defaults, true)
@@ -169,7 +230,7 @@ function addon:OnInitialize()
 
 	LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("oRA3", giveOptions)
 	LibStub("AceConfigDialog-3.0"):AddToBlizOptions("oRA3", "oRA3")
-	
+
 	LibStub("AceConfigRegistry-3.0"):RegisterOptionsTable("oRA3 Profile", LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db))
 	LibStub("AceConfigDialog-3.0"):AddToBlizOptions("oRA3 Profile", L["Profile"], "oRA3")
 
@@ -192,6 +253,9 @@ function addon:OnEnable()
 	self:RegisterEvent("CHAT_MSG_SYSTEM")
 	self:RegisterEvent("PLAYER_REGEN_DISABLED")
 	self:RegisterEvent("PLAYER_REGEN_ENABLED")
+
+	self.RegisterCallback(addon, "OnGroupChanged", onGroupChanged)
+	self.RegisterCallback(addon, "OnShutdown", onShutdown)
 
 	local function show()
 		if not db.toggleWithRaid then return end
@@ -313,10 +377,10 @@ do
 		return tmp
 	end
 	function addon:GetBlizzardTanks() return tanks end
-	
+
 	local tmpGroup = {}
 	local tmpTanks = {}
-	
+
 	function addon:RAID_ROSTER_UPDATE(event)
 		local oldStatus = groupStatus
 		if GetNumRaidMembers() > 0 then
@@ -440,7 +504,7 @@ local function setupGUI()
 	frame:SetHitRectInsets(0, 30, 0, 45)
 	frame:SetToplevel(true)
 	frame:EnableMouse(true)
-	
+
 	local topleft = frame:CreateTexture(nil, "ARTWORK")
 	topleft:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-General-TopLeft")
 	topleft:SetWidth(256)
@@ -452,7 +516,7 @@ local function setupGUI()
 	toplefticon:SetHeight(60)
 	toplefticon:SetPoint("TOPLEFT", 7, -6)
 	SetPortraitToTexture(toplefticon, "Interface\\WorldMap\\Gear_64Grey")
-	
+
 	local topright = frame:CreateTexture(nil, "ARTWORK")
 	topright:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-General-TopRight")
 	topright:SetWidth(128)
@@ -551,12 +615,12 @@ local function setupGUI()
 	subframe:SetPoint("BOTTOMRIGHT", -40, 78)
 	contentFrame = subframe
 
-	
+
 	-- CHECKS GUI
-	
+
 	local listFrame = CreateFrame("Frame", "oRA3ListFrame", subframe)
 	listFrame:SetAllPoints(subframe)
-	
+
 	-- Scrolling body
 	local sframe = CreateFrame("ScrollFrame", "oRA3ScrollFrame", listFrame, "FauxScrollFrameTemplate")
 	sframe:SetPoint("BOTTOMLEFT", listFrame, 0, 33)
@@ -689,7 +753,7 @@ function addon:SavePosition(name, nosize)
 	x,y = x*s,y*s
 
 	local opt = db.positions[name]
-	if not opt then 
+	if not opt then
 		db.positions[name] = {}
 		opt = db.positions[name]
 	end
@@ -704,7 +768,7 @@ end
 function addon:RestorePosition(name)
 	local f = _G[name]
 	local opt = db.positions[name]
-	if not opt then 
+	if not opt then
 		db.positions[name] = {}
 		opt = db.positions[name]
 	end
@@ -713,7 +777,7 @@ function addon:RestorePosition(name)
 	local y = opt.PosY
 
 	local s = f:GetEffectiveScale()
-		
+
 	if not x or not y then
 		f:ClearAllPoints()
 		f:SetPoint("CENTER", UIParent)
@@ -899,7 +963,7 @@ local function createHighlights( secure )
 
 	local extra = secure and "Secure" or "InSecure"
 	local list
-	if secure then 
+	if secure then
 		list = secureScrollhighs
 	else
 		list = scrollhighs

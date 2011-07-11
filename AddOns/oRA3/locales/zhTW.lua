@@ -10,13 +10,18 @@ L["Options"] = "選項"
 L["<oRA3> Disbanding group."] = "<oRA3>正在解散團隊"
 L["Are you sure you want to disband your group?"] = "你確定要解散團隊?"
 L["Unknown"] = "未知"
+L["Profile"] = "設定檔"
 
 -- Core
+
 L["Toggle oRA3 Pane"] = "切換oRA3面板"
 L["Open with raid pane"] = "跟著團隊面板開啟"
 L.toggleWithRaidDesc = "一起跟著內建團隊面板自動開啟和關閉。如果你禁用這選項，你扔然可以用按鍵綁定或是/命令來開啟oRA3面板,列如|cff44ff44/radur|r。"
 L["Show interface help"] = "顯示介面幫助"
 L.showHelpTextsDesc = "oRA3介面充滿幫助性的文字來引導將要做什麼做更好的描述以及不同的介面組成事實上在做什麼。禁用這選項將會移除，限制在各面板雜亂的訊息，|cffff4411在某些面板需要重新載入介面。|r"
+L["Ensure guild repairs are enabled for all ranks present in raid"] = "為所有在團隊裡出席的階級啟用公會修裝"
+L.ensureRepairDesc = "如果你是公會會長，任何時候你加入到團隊且是隊長或是被提升，你可以啟用公會修裝直到團隊結束(最多300g)。萬一你離開團隊，設定就會被還原到原始狀態|cffff4411預防你在團隊期間不會破產。|r"
+L.repairEnabled = "啟用%s公會修裝直到團隊結束。"
 
 L["Slash commands"] = "/指令"
 L.slashCommands = [[
@@ -82,7 +87,7 @@ L["Clicking any of the buttons below will invite anyone of the selected rank AND
 
 -- Promote module
 L["Demote everyone"] = "降級所有人"
-L["Demotes everyone in the current group."] = "降級在目前群組的所有人"
+L["Demotes everyone in the current group."] = "降級在目前隊伍的所有人"
 L["Promote"] = "晉升"
 L["Mass promotion"] = "大量晉升"
 L["Everyone"] = "所有人"
@@ -139,12 +144,11 @@ L["Zone"] = "區域"
 -- Loot module
 L["Leave empty to make yourself Master Looter."] = "留空讓自己分配戰利品。"
 L["Let oRA3 to automatically set the loot mode to what you specify below when entering a party or raid."] = "讓oRA3自動設定捨取模式，當你進入隊伍或團隊做具體說明。"
-L["Set the loot mode automatically when joining a group"] = "當加入一個群組自動設定捨取模式"
+L["Set the loot mode automatically when joining a group"] = "當加入一個隊伍自動設定捨取模式"
 
 -- Tanks module
 L["Tanks"] = "坦克"
 L.tankTabTopText = "點擊下方列表將其設為坦克. 將鼠標移動到按鈕上可看到操作提示."
-
 -- L["Remove"] is defined above
 L.deleteButtonHelp = "從坦克名單移除。"
 L["Blizzard Main Tank"] = "內建主坦克"

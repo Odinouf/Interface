@@ -4,12 +4,12 @@
 ## Interface: 40200
 ## SavedVariables: SwatterData
 ##
-## Version: 3.2.4 (<%codename%>)
-## Revision: $Id: !Swatter.toc 313 2011-06-29 03:17:11Z Esamynn $
+## Version: 5.12.5198 (QuirkyKiwi)
+## Revision: $Id: !Swatter.toc 314 2011-07-04 17:02:12Z Nechckn $
 ## Author: Norganna's AddOns
 ## X-Part-Of: Libraries
 ## X-Category: Library
-## X-Max-Interface: 40000
+## X-Max-Interface: 40200
 ## X-URL: http://zip.norganna.org/libs/!Swatter/
 ## X-Feedback: http://forums.norganna.org
 ##

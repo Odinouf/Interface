@@ -2,7 +2,7 @@
 ## Name: oRA3
 ## Notes: Raid and Party Assist
 ## Author: Ammo, Rabbit
-## X-Curse-Packaged-Version: r501
+## X-Curse-Packaged-Version: r508
 ## X-Curse-Project-Name: oRA3
 ## X-Curse-Project-ID: ora3
 ## X-Curse-Repository-ID: wow/ora3/mainline
