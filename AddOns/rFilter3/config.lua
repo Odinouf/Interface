@@ -379,7 +379,7 @@
     --Debuff List
     
     cfg.rf3_DebuffList = {
-      [1] = {
+     --[[ [1] = {
         spec = nil, 
         spellid = 91565, --lucioles
         spelllist = { --check a list instead because other classes can do the same
@@ -541,7 +541,7 @@
           },
         },
       },
-	  
+	  --]]
 	}
   
   --Cooldown List
