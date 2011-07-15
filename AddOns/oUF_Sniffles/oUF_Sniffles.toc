@@ -1,8 +1,0 @@
-## Interface: 40000
-## Title: oUF_Sniffles
-## Notes: oUF_Layout
-## Author: Sniffles
-## Version: 1
-
-
-oUF_Sniffles.xml

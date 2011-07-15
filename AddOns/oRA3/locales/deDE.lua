@@ -19,6 +19,9 @@ L["Open with raid pane"] = "Mit Schlachtzugsfenster öffnen"
 L.toggleWithRaidDesc = "Öffnet und schließt das oRA3 Fenster zusammen mit Blizzards Schlachtzugsfenster. Falls du diese Option deaktivierst, kannst du das oRA3 Fenster nach wie vor via Tastenbelegung oder einem Befehl öffnen, z.B. |cff44ff44/radur|r."
 L["Show interface help"] = "Interface Hilfe anzeigen"
 L.showHelpTextsDesc = "Das oRA3 Interface ist voll von hilfreichen Tips, die eine bessere Beschreibung der einzelnen Elemente liefern und deren Funktion erklären. Falls du diese Option deaktivierst, begrenzt du das Durcheinander in allen Fenstern. |cffff4411Manche Fenster benötigen ein Neuladen des Interfaces.|r"
+L["Ensure guild repairs are enabled for all ranks present in raid"] = "Stellt sicher, dass Gildenreparatur für alle im Schlachtzug anwesenden Ränge aktiviert ist"
+L.ensureRepairDesc = "Falls du Gildenleiter und zugleich Raidleiter/Assistent der aktuellen Schlachtgruppe bist, wirst du die Gildenreparatur für die Dauer der Gruppe aktivieren (bis 300g). Sobald du die Gruppe verlässt, wird der vorherige Status wieder gesetzt, |cffff4411sofern du nicht aus dem Spiel geflogen bist.|r"
+L.repairEnabled = "Gildenreparatur für %s für die Dauer dieses Schlachtzugs aktiviert."
 
 L["Slash commands"] = "Befehle"
 L.slashCommands = [[
@@ -47,7 +50,11 @@ L["Show the window when a ready check is performed."] = "Zeigt das Fenster, wenn
 L["Hide window when done"] = "Fenster nach Durchlauf schließen"
 L["Automatically hide the window when the ready check is finished."] = "Schließt das Fenster automatisch, sobald der Bereitschaftscheck durchgelaufen ist."
 L["Hide players who are ready"] = "Bereite Spieler ausblenden"
-L["Hide players that are marked as ready from the window."] = "Blendet Spieler, die als bereit markiert wurden, aus dem Fenster aus."
+L["Hide players that are marked as ready from the window."] = "Blendet Spieler, die als 'Bereit' markiert wurden, aus dem Fenster aus."
+L["Automatically hide the ready check window when you get in combat."] = "Blendet das Fenster automatisch aus, wenn du in einen Kampf gerätst."
+L["Hide in combat"] = "Im Kampf verstecken"
+L["Relay ready check results to raid chat"] = "Bereitschaftscheck in den Chat weiterleiten"
+L["If you are promoted, relay the results of ready checks to the raid chat, allowing raid members to see what the holdup is. Please make sure yourself that only one person has this enabled."] = "Falls du Assistent/Leiter bist, wird das Ergebnis des Bereitschaftschecks im Schlachtzugschat angezeigt, um Mitspielern zu zeigen, wer sie aufhält. Bitte versichere Dich, dass nur eine Person diese Funktion aktiviert hat."
 
 -- Durability module
 L["Durability"] = "Haltbarkeit"
