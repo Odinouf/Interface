@@ -59,12 +59,14 @@ local initializeDropdown
 local maxlines
 local infoFrameThreshold 
 local pIndex
+local iconModifier
 local headerText = "DBM Info Frame"	-- this is only used if DBM.InfoFrame:SetHeader(text) is not called before :Show()
 local currentEvent
 local sortingAsc
 local lines = {}
 local icons = {}
 local sortedLines = {}
+local lastStacks = {}
 
 ---------------------
 --  Dropdown Menu  --
@@ -201,9 +203,7 @@ local function updateIcons()
 		end
 	end
 end
-		
 
---Icons are violently unstable in this method do to the health sorting code, it will creating about 200 errors per second.
 local function updateHealth()
 	table.wipe(lines)
 	if GetNumRaidMembers() > 0 then
@@ -279,7 +279,7 @@ local function updatePlayerBuffs()
 	updateIcons()
 end
 
-local function updatePlayerDebuffs()
+local function updateGoodPlayerDebuffs()
 	table.wipe(lines)
 	if GetNumRaidMembers() > 0 then
 		for i = 1, GetNumRaidMembers() do
@@ -296,12 +296,83 @@ local function updatePlayerDebuffs()
 				lines[UnitName(uId)] = ""
 			end
 		end
-		if not UnitDebuff("player", GetSpellInfo(infoFrameThreshold)) and not UnitIsDeadOrGhost("player") then--"party"..i excludes player but "raid"..i includes player wtf?
+		if not UnitDebuff("player", GetSpellInfo(infoFrameThreshold)) and not UnitIsDeadOrGhost("player") then--"party"..i excludes player so we hack it in.
 			lines[UnitName("player")] = ""
 		end
 	end
 	updateLines()
 	updateIcons()
+end
+
+--Maybe a way to merge good and bad later with an arg that determines type of test, but first i gotta see if it actually works on rag first or there won't be any reason to have one yet
+local function updateBadPlayerDebuffs()
+	table.wipe(lines)
+	if GetNumRaidMembers() > 0 then
+		for i = 1, GetNumRaidMembers() do
+			local uId = "raid"..i
+			if UnitDebuff(uId, GetSpellInfo(infoFrameThreshold)) and not UnitIsDeadOrGhost(uId) then
+				lines[UnitName(uId)] = ""
+			end
+		end
+	elseif GetNumPartyMembers() > 0 then
+		for i = 1, GetNumPartyMembers() do
+			local uId = "party"..i
+			if  UnitDebuff(uId, GetSpellInfo(infoFrameThreshold)) and not UnitIsDeadOrGhost(uId) then
+				local icon = GetRaidTargetIndex(uId)
+				lines[UnitName(uId)] = ""
+			end
+		end
+		if UnitDebuff("player", GetSpellInfo(infoFrameThreshold)) and not UnitIsDeadOrGhost("player") then--"party"..i excludes player so we hack it in.
+			lines[UnitName("player")] = ""
+		end
+	end
+	updateLines()
+	updateIcons()
+end
+
+local function updatePlayerBuffStacks()
+	table.wipe(lines)
+	updateIcons()	-- update Icons first in case of an "icon modifier"
+	if GetNumRaidMembers() > 0 then
+		for i = 1, GetNumRaidMembers() do
+			local uId = "raid"..i
+			if UnitBuff(uId, GetSpellInfo(infoFrameThreshold)) then
+				lines[UnitName(uId)] = select(4, UnitBuff(uId, GetSpellInfo(infoFrameThreshold)))
+			elseif UnitBuff(uId, GetSpellInfo(pIndex)) then
+				lines[UnitName(uId)] = lastStacks[UnitName(uId)] or 0			-- is always 0 ?
+				if iconModifier then
+					icons[UnitName(uId)] = ("|TInterface\\TargetingFrame\\UI-RaidTargetingIcon_%d:0|t"):format(iconModifier)
+				end
+			end			
+		end
+	elseif GetNumPartyMembers() > 0 then
+		for i = 1, GetNumPartyMembers() do
+			local uId = "party"..i
+			if UnitBuff(uId, GetSpellInfo(infoFrameThreshold)) then
+				lines[UnitName(uId)] = select(4, UnitBuff(uId, GetSpellInfo(infoFrameThreshold)))
+			elseif UnitBuff(uId, GetSpellInfo(pIndex)) then
+				lines[UnitName(uId)] = lastStacks[UnitName(uId)] or 0
+				if iconModifier then
+					icons[UnitName(uId)] = ("|TInterface\\TargetingFrame\\UI-RaidTargetingIcon_%d:0|t"):format(iconModifier)
+				end
+			end
+		end
+		if UnitBuff("player", GetSpellInfo(infoFrameThreshold)) then
+			lines[UnitName("player")] = select(4, UnitBuff("player", GetSpellInfo(infoFrameThreshold)))
+		elseif UnitBuff("player", GetSpellInfo(pIndex)) then
+			lines[UnitName("player")] = lastStacks[UnitName("player")]
+			if iconModifier then
+				icons[UnitName(uId)] = ("|TInterface\\TargetingFrame\\UI-RaidTargetingIcon_%d:0|t"):format(iconModifier)
+			end
+		end
+	end
+
+	table.wipe(lastStacks)		-- 'Erase' the old table, and copy the current values into it
+	for k,v in pairs(lines) do
+		lastStacks[k] = v
+	end
+
+	updateLines()
 end
 
 local function updatePlayerAggro()
@@ -343,10 +414,14 @@ function onUpdate(self, elapsed)
 		updateEnemyPower()
 	elseif currentEvent == "playerbuff" then
 		updatePlayerBuffs()
-	elseif currentEvent == "playerdebuff" then
-		updatePlayerDebuffs()
+	elseif currentEvent == "playergooddebuff" then
+		updateGoodPlayerDebuffs()
+	elseif currentEvent == "playerbaddebuff" then
+		updateBadPlayerDebuffs()
 	elseif currentEvent == "playeraggro" then
 		updatePlayerAggro()
+	elseif currentEvent == "playerbuffstacks" then
+		updatePlayerBuffStacks()
 	end
 --	updateIcons()
 	for i = 1, #sortedLines do
@@ -379,7 +454,8 @@ function infoFrame:Show(maxLines, event, threshold, ...)
 
 	infoFrameThreshold = threshold
 	maxlines = maxLines or 5	-- default 5 lines
-	pIndex = select(1, ...)
+	pIndex = select(1, ...)		-- used as 'filter' for player buff stacks
+	iconModifier = select(2, ...)
 	currentEvent = event
 	frame = frame or createFrame()
 
@@ -392,11 +468,15 @@ function infoFrame:Show(maxLines, event, threshold, ...)
 		updateEnemyPower()
 	elseif event == "playerbuff" then
 		updatePlayerBuffs()
-	elseif event == "playerdebuff" then
-		updatePlayerDebuffs()
+	elseif event == "playergooddebuff" then
+		updateGoodPlayerDebuffs()
+	elseif event == "playerbaddebuff" then
+		updateBadPlayerDebuffs()
 	elseif currentEvent == "playeraggro" then
 		updatePlayerAggro()
-	else
+	elseif currentEvent == "playerbuffstacks" then
+		updatePlayerBuffStacks()
+	else		
 		print("DBM-InfoFrame: Unsupported event given")
 	end
 	

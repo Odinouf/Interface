@@ -2,7 +2,7 @@
 local mod	= DBM:NewMod("Chimaeron", "DBM-BlackwingDescent")
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 6017 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 6200 $"):sub(12, -3))
 mod:SetCreatureID(43296)
 mod:SetModelID(33308)
 mod:SetZone()
@@ -136,7 +136,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		if self.Options.SetIconOnSlime then
 			table.insert(slimeTargetIcons, DBM:GetRaidUnitId(args.destName))
 			self:UnscheduleMethod("SetSlimeIcons")
-			if mod:LatencyCheck() then--lag can fail the icons so we check it before allowing.
+			if self:LatencyCheck() then--lag can fail the icons so we check it before allowing.
 				self:ScheduleMethod(0.5, "SetSlimeIcons")--Still seems touchy and .3 is too fast even on a 70ms connection in rare cases so back to .4
 			end
 		end

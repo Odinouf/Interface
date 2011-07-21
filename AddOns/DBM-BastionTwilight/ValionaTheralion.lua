@@ -2,7 +2,7 @@
 local mod	= DBM:NewMod("ValionaTheralion", "DBM-BastionTwilight")
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 6022 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 6200 $"):sub(12, -3))
 mod:SetCreatureID(45992, 45993)
 mod:SetModelID(34812)
 mod:SetZone()
@@ -244,7 +244,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			engulfingMagicIcon = engulfingMagicIcon - 1
 		end
 		self:Unschedule(showEngulfingMagicWarning)
-		if (mod:IsDifficulty("heroic25") and #engulfingMagicTargets >= 3) or (mod:IsDifficulty("normal25", "heroic10") and #engulfingMagicTargets >= 2) or (mod:IsDifficulty("normal10") and #engulfingMagicTargets >= 1) then
+		if (self:IsDifficulty("heroic25") and #engulfingMagicTargets >= 3) or (self:IsDifficulty("normal25", "heroic10") and #engulfingMagicTargets >= 2) or (self:IsDifficulty("normal10") and #engulfingMagicTargets >= 1) then
 			showEngulfingMagicWarning()
 		else
 			self:Schedule(0.3, showEngulfingMagicWarning)

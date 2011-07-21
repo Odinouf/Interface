@@ -7,7 +7,7 @@ buttonwidth = 27
 buttonheight = 27  
  		
 AnchorMarkBar = CreateFrame("Frame","Move_MarkBar",UIParent)
-AnchorMarkBar:SetPoint("TOP", UIParent, "TOP", 0, -5)
+AnchorMarkBar:SetPoint("TOP", UIParent, "TOP", -50, -20)
 CreateAnchor(AnchorMarkBar, "Move Mark Bar", 120, 20)						
 
 local anchor = {}

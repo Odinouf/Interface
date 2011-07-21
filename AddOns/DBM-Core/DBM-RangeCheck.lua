@@ -609,7 +609,7 @@ do
 			local dx = ((x * math.cos(rotation)) - (-y * math.sin(rotation))) * pixelsperyard		-- Rotate the X,Y based on player facing
 			local dy = ((x * math.sin(rotation)) + (-y * math.cos(rotation))) * pixelsperyard
 
-			if icon then
+			if icon and type(icon) == "number" and icon >= 1 and icon <= 8 then -- GetRaidTargetIndex seems to return strange values sometimes; see http://www.deadlybossmods.com/phpbb3/viewtopic.php?f=2&t=3213&p=30889#p30889
 				if dots[id].icon and dots[id].icon ~= icon then
 					charms[dots[id].icon]:Hide()
 				end
@@ -644,7 +644,7 @@ do
 				dots[id].icon = nil
 			end
 		end
-		if range < 1.05 * frame.range and not filtered then		-- add an  extra 5% in case of inaccuracy
+		if range < 1.10 * frame.range and not filtered then		-- add an  extra 10% in case of inaccuracy
 			dots[id].tooClose = true
 		else
 			dots[id].tooClose = false

@@ -2,7 +2,7 @@
 local mod	= DBM:NewMod("AscendantCouncil", "DBM-BastionTwilight")
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 6022 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 6200 $"):sub(12, -3))
 mod:SetCreatureID(43686, 43687, 43688, 43689, 43735)
 mod:SetModelID(34822)
 mod:SetZone()
@@ -171,7 +171,7 @@ local function checkGrounded()
 	if mod.Options.InfoFrame and not infoFrameUpdated then
 		infoFrameUpdated = true
 		DBM.InfoFrame:SetHeader(L.WrongDebuff:format(GetSpellInfo(83581)))
-		DBM.InfoFrame:Show(5, "playerdebuff", 83581)
+		DBM.InfoFrame:Show(5, "playergooddebuff", 83581)
 	end
 end
 
@@ -182,7 +182,7 @@ local function checkSearingWinds()
 	if mod.Options.InfoFrame and not infoFrameUpdated then
 		infoFrameUpdated = true
 		DBM.InfoFrame:SetHeader(L.WrongDebuff:format(GetSpellInfo(83500)))
-		DBM.InfoFrame:Show(5, "playerdebuff", 83500)
+		DBM.InfoFrame:Show(5, "playergooddebuff", 83500)
 	end
 end
 
@@ -266,7 +266,7 @@ function mod:OnCombatStart(delay)
 	timerHeartIceCD:Start(18-delay)--could be just as flakey as it is in combat though.
 	timerBurningBloodCD:Start(28-delay)--could be just as flakey as it is in combat though.
 	timerAegisFlame:Start(31-delay)
-	if mod:IsDifficulty("heroic10", "heroic25") then
+	if self:IsDifficulty("heroic10", "heroic25") then
 		timerGravityCoreCD:Start(25-delay)
 		timerStaticOverloadCD:Start(20-delay)
 		if self.Options.RangeFrame then
@@ -328,7 +328,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			lightningRodIcon = lightningRodIcon - 1
 		end
 		self:Unschedule(showLightningRodWarning)
-		if (mod:IsDifficulty("normal25", "heroic25") and #lightningRodTargets >= 3) or (mod:IsDifficulty("normal10", "heroic10") and #lightningRodTargets >= 1) then
+		if (self:IsDifficulty("normal25", "heroic25") and #lightningRodTargets >= 3) or (self:IsDifficulty("normal10", "heroic10") and #lightningRodTargets >= 1) then
 			showLightningRodWarning()
 		else
 			self:Schedule(0.3, showLightningRodWarning)
@@ -357,7 +357,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			gravityCrushIcon = gravityCrushIcon - 1
 		end
 		self:Unschedule(showGravityCrushWarning)
-		if (mod:IsDifficulty("normal25", "heroic25") and #gravityCrushTargets >= 3) or (mod:IsDifficulty("normal10", "heroic10") and #gravityCrushTargets >= 1) then
+		if (self:IsDifficulty("normal25", "heroic25") and #gravityCrushTargets >= 3) or (self:IsDifficulty("normal10", "heroic10") and #gravityCrushTargets >= 1) then
 			showGravityCrushWarning()
 		else
 			self:Schedule(0.3, showGravityCrushWarning)
@@ -430,7 +430,7 @@ function mod:SPELL_AURA_REFRESH(args)--We do not combine refresh with applied ca
 			lightningRodIcon = lightningRodIcon - 1
 		end
 		self:Unschedule(showLightningRodWarning)
-		if (mod:IsDifficulty("normal25", "heroic25") and #lightningRodTargets >= 3) or (mod:IsDifficulty("normal10", "heroic10") and #lightningRodTargets >= 1) then
+		if (self:IsDifficulty("normal25", "heroic25") and #lightningRodTargets >= 3) or (self:IsDifficulty("normal10", "heroic10") and #lightningRodTargets >= 1) then
 			showLightningRodWarning()
 		else
 			self:Schedule(0.3, showLightningRodWarning)
@@ -445,7 +445,7 @@ function mod:SPELL_AURA_REFRESH(args)--We do not combine refresh with applied ca
 			gravityCrushIcon = gravityCrushIcon - 1
 		end
 		self:Unschedule(showGravityCrushWarning)
-		if (mod:IsDifficulty("normal25", "heroic25") and #gravityCrushTargets >= 3) or (mod:IsDifficulty("normal10", "heroic10") and #gravityCrushTargets >= 1) then
+		if (self:IsDifficulty("normal25", "heroic25") and #gravityCrushTargets >= 3) or (self:IsDifficulty("normal10", "heroic10") and #gravityCrushTargets >= 1) then
 			showGravityCrushWarning()
 		else
 			self:Schedule(0.3, showGravityCrushWarning)
@@ -621,7 +621,7 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 		timerGravityCoreCD:Cancel()
 		timerStaticOverloadCD:Cancel()
 		timerHydroLanceCD:Cancel()
-		if mod:IsDifficulty("heroic10", "heroic25") then
+		if self:IsDifficulty("heroic10", "heroic25") then
 			timerFrostBeaconCD:Start(27)
 			timerFlameStrikeCD:Start(30)
 		end
@@ -635,7 +635,7 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 		timerEruptionCD:Cancel()
 		timerDisperse:Cancel()
 		timerTransition:Start()
-		if mod:IsDifficulty("heroic10", "heroic25") then
+		if self:IsDifficulty("heroic10", "heroic25") then
 			timerFlameStrikeCD:Cancel()
 			self:Schedule(14, function() timerFrostBeaconCD:Cancel() end) -- Frost Beacon appears during phase transition, but not works. Anyway, to prevent spam, actually cancel timers when phase 3 starts.
 		end
@@ -657,7 +657,7 @@ function mod:RAID_BOSS_EMOTE(msg)
 		timerQuakeCD:Update(23, 33)
 		warnQuakeSoon:Show()
 		checkSearingWinds()
-		if mod:IsDifficulty("heroic10", "heroic25") then
+		if self:IsDifficulty("heroic10", "heroic25") then
 			self:Schedule(3.3, checkSearingWinds)
 			self:Schedule(6.6, checkSearingWinds)
 		end
@@ -665,7 +665,7 @@ function mod:RAID_BOSS_EMOTE(msg)
 		timerThundershockCD:Update(23, 33)
 		warnThundershockSoon:Show()
 		checkGrounded()
-		if mod:IsDifficulty("heroic10", "heroic25") then
+		if self:IsDifficulty("heroic10", "heroic25") then
 			self:Schedule(3.3, checkGrounded)
 			self:Schedule(6.6, checkGrounded)
 		end

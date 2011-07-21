@@ -42,10 +42,10 @@
 --  Globals/Default Options  --
 -------------------------------
 DBM = {
-	Revision = ("$Revision: 6075 $"):sub(12, -3),
-	Version = "4.92",
-	DisplayVersion = "4.93 alpha", -- the string that is shown as version
-	ReleaseRevision = 6059 -- the revision of the latest stable version that is available (for /dbm ver2)
+	Revision = ("$Revision: 6221 $"):sub(12, -3),
+	Version = "4.94",
+	DisplayVersion = "4.94", -- the string that is shown as version
+	ReleaseRevision = 6221 -- the revision of the latest stable version that is available (for /dbm ver2)
 }
 
 DBM_SavedOptions = {}

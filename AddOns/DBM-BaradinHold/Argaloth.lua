@@ -2,7 +2,7 @@
 local mod	= DBM:NewMod("Argaloth", "DBM-BaradinHold")
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 6017 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 6200 $"):sub(12, -3))
 mod:SetCreatureID(47120)
 mod:SetModelID(35426)
 mod:SetZone()
@@ -71,7 +71,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			consumingIcon = consumingIcon - 1
 		end
 		self:Unschedule(showConsumingWarning)
-		if (mod:IsDifficulty("normal10") and #consumingTargets >= 3) or (mod:IsDifficulty("normal25") and #consumingTargets >= 8) then
+		if (self:IsDifficulty("normal10") and #consumingTargets >= 3) or (self:IsDifficulty("normal25") and #consumingTargets >= 8) then
 			showConsumingWarning()
 		else
 			self:Schedule(0.3, showConsumingWarning)

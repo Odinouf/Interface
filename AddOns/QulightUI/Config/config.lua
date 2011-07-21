@@ -114,10 +114,22 @@ Qulight["datatext"] = {
 	["Localtime"] = true,  
 	["classcolor"] = true,
 	["color"] = { .7, .7, .7, 1 }, 			-- if ["classcolor"] = false,	
-}
+}--[[
 Qulight["nameplatess"] = {
 	["enable"] = true,                                  -- enable nice skinned nameplates that fit into tukui
+}--]]
+
+Qulight["nameplate"] = {
+	["enable"] = true,                    
+	["width"] = 105,
+	["showhealth"] = false,
+	["skinlvl"] = true,
+	["enhancethreat"] = true,				
+	["combat"] = false,	
+	["trackauras"] = true,				--track players debuffs only (debuff list derived from classtimer spell list)
+	["trackccauras"] = true,			--track all CC debuffs	
 }
+
 Qulight["togglemenu"] = {
 	["enable"] = false,
 	["buttonwidth"] = 98,					-- Width of menu buttons

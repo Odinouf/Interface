@@ -10,7 +10,8 @@ mod:RegisterEvents(
 	"SPELL_AURA_APPLIED_DOSE",
 	"SPELL_AURA_REMOVED",
 	"SPELL_CAST_START",
-	"UNIT_DIED"
+	"UNIT_DIED",
+	"ZONE_CHANGED_NEW_AREA"
 )
 
 --[[	Possible additions?
@@ -21,11 +22,11 @@ Ancient Core Hound:	Fear CD? (1st = 6-13sec after first breath. 2nd = 26-31 afte
 local warnMoltenArmor		= mod:NewStackAnnounce(99532, 3, nil, mod:IsTank() or mod:IsHealer())
 
 local specWarnFieroblast	= mod:NewSpecialWarningInterrupt(100094, false)
-local specWarnMoltenArmor	= mod:NewSpecialWarningStack(99532, 4, nil, mod:IsTank())
+local specWarnMoltenArmor	= mod:NewSpecialWarningStack(99532, mod:IsTank(), 4)
 
 local timerMoltenArmor		= mod:NewTargetTimer(15, 99532, nil, mod:IsTank() or mod:IsHealer())
 
-mod:AddBoolOption("RangeFrame", true)
+mod:AddBoolOption("RangeFrame", false)--off by default, this was NOT well recieved.
 
 local surgers = 0
 local surgerGUIDs = {}
@@ -74,7 +75,20 @@ function mod:UNIT_DIED(args)
 		surgers = surgers - 1
 		if surgers <= 0 then 
 			surgers = 0
-			DBM.RangeCheck:Hide()
+			table.wipe(surgerGUIDs)--Also wipe GUID table
+			if self.Options.RangeFrame then
+				DBM.RangeCheck:Hide()
+			end
 		end
 	end	
+end
+
+function mod:ZONE_CHANGED_NEW_AREA()
+	if surgers > 0 then--You probably wiped on trash and don't need the range finder to get stuck open.
+		surgers = 0--Reset the surgers.
+		table.wipe(surgerGUIDs)--Also wipe GUID table
+		if self.Options.RangeFrame then
+			DBM.RangeCheck:Hide()
+		end
+	end
 end

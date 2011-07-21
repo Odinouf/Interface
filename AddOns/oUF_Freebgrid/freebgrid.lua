@@ -513,7 +513,7 @@ local style = function(self)
     -- Auras
     local auras = CreateFrame("Frame", nil, self)
     auras:SetSize(ns.db.aurasize, ns.db.aurasize)
-    auras:SetPoint("CENTER", self.Health)
+    auras:SetPoint("LEFT", self.Health, 0, 4) -- modif
     auras.size = ns.db.aurasize
     self.freebAuras = auras
 

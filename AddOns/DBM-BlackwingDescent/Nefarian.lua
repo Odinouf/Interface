@@ -2,7 +2,7 @@
 local mod	= DBM:NewMod("Nefarian", "DBM-BlackwingDescent")
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 6039 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 6200 $"):sub(12, -3))
 mod:SetCreatureID(41376, 41270)
 mod:SetModelID(32716)
 mod:SetZone()
@@ -92,7 +92,9 @@ local shadowBlazeSynced = false
 --Credits to Bigwigs for original, modified when blizz nerfed it.
 function mod:ShadowBlazeFunction()
 	lastBlaze = GetTime()
-	if shadowblazeTimer > 15 and mod:IsDifficulty("normal10", "normal25") or shadowblazeTimer > 10 then--Keep it from dropping below 10 (15 in normal mode 4.2+)
+	if shadowblazeTimer > 15 then
+		shadowblazeTimer = shadowblazeTimer - 5
+	elseif shadowblazeTimer > 10 and self:IsDifficulty("heroic10", "heroic25") then
 		shadowblazeTimer = shadowblazeTimer - 5
 	end
 	warnShadowBlaze:Show()
@@ -138,7 +140,7 @@ function mod:OnCombatStart(delay)
 	table.wipe(cinderTargets)
 	table.wipe(dominionTargets)
 	timerNefLanding:Start(-delay)
-	if mod:IsDifficulty("heroic10", "heroic25") then
+	if self:IsDifficulty("heroic10", "heroic25") then
 		berserkTimer:Start(-delay)
 		timerDominionCD:Start(50-delay)
 	end
@@ -206,7 +208,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			cinderIcons = cinderIcons - 1
 		end
 		self:Unschedule(warnCinderTargets)
-		if (mod:IsDifficulty("heroic25") and #cinderTargets >= 3) or (mod:IsDifficulty("heroic10") and #cinderTargets >= 1) then
+		if (self:IsDifficulty("heroic25") and #cinderTargets >= 3) or (self:IsDifficulty("heroic10") and #cinderTargets >= 1) then
 			warnCinderTargets()
 		else
 			self:Schedule(0.3, warnCinderTargets)
@@ -217,7 +219,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			specWarnDominion:Show()
 		end
 		self:Unschedule(warnDominionTargets)
-		if (mod:IsDifficulty("heroic25") and #dominionTargets >= 5) or (mod:IsDifficulty("heroic10") and #dominionTargets >= 2) then
+		if (self:IsDifficulty("heroic25") and #dominionTargets >= 5) or (self:IsDifficulty("heroic10") and #dominionTargets >= 2) then
 			warnDominionTargets()
 		else
 			self:Schedule(0.3, warnDominionTargets)
@@ -293,7 +295,7 @@ function mod:CHAT_MSG_MONSTER_YELL(msg)
 		timerNefBreathCD:Cancel()
 		timerDominionCD:Cancel()
 		timerShadowflameBarrage:Start()
-		if mod:IsDifficulty("heroic10", "heroic25") then
+		if self:IsDifficulty("heroic10", "heroic25") then
 			timerCinderCD:Start(11.5)--10+ cast, since we track application not cast.
 		end
 	elseif msg == L.YellPhase3 or msg:find(L.YellPhase3) then

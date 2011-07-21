@@ -102,33 +102,36 @@ ReminderBuffs = {
 			["level"] = 10,
 		},
 	},
-	WARRIOR = {
+			
+		WARRIOR = {
 		[1] = { -- commanding Shout group
 			["spells"] = {
-				469, 
-			},
+			469, 
+		},
 			["negate_spells"] = {
-				6307, -- Blood Pact
-				90364, -- Qiraji Fortitude
-				72590, -- Drums of fortitude
-				21562, -- Fortitude				
-			},
+			6307, -- Blood Pact
+			90364, -- Qiraji Fortitude
+			72590, -- Drums of fortitude
+			21562, -- Fortitude
+			6673, -- battle shout
+		},
 			["combat"] = true,
 			["role"] = "Tank",
 		},
-		[2] = { -- battle Shout group
+			[2] = { -- battle Shout group
 			["spells"] = {
-				6673, 
-			},
+			6673, 
+		},
 			["negate_spells"] = {
-				8076, -- strength of earth
-				57330, -- horn of Winter
-				93435, -- roar of courage (hunter pet)						
-			},
+			8076, -- strength of earth
+			57330, -- horn of Winter
+			93435, -- roar of courage (hunter pet)
+			469, -- commanding shout
+		},
 			["combat"] = true,
 			["role"] = "Melee",
 		},
-	},
+		},
 	DEATHKNIGHT = {
 		[1] = { -- horn of Winter group
 			["spells"] = {

@@ -1,7 +1,7 @@
 ﻿local mod	= DBM:NewMod("Nalorakk5", "DBM-Party-Cataclysm", 10)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 5817 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 6185 $"):sub(12, -3))
 mod:SetCreatureID(23576)
 mod:SetModelID(21631)
 mod:SetZone()
@@ -38,7 +38,7 @@ function mod:OnCombatStart(delay)
 	berserkTimer:Start(-delay)
 	if self.Options.InfoFrame then
 		DBM.InfoFrame:SetHeader(L.PlayerDebuffs)
-		DBM.InfoFrame:Show(5, "playerdebuff", 42402)
+		DBM.InfoFrame:Show(5, "playergooddebuff", 42402)
 	end
 end
 

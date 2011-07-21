@@ -28,11 +28,12 @@ localization.kr.lua
 localization.ru.lua
 localization.tw.lua
 MapSizes.lua
-Alysrazor.lua
-Rhyolith.lua
 Bethtilac.lua
+Rhyolith.lua
+Alysrazor.lua
 Shannox.lua
 Baleroc.lua
 FandralStaghelm.lua
 Ragnaros.lua
 FirelandsTrash.lua
+Volcanus.lua

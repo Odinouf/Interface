@@ -1,7 +1,7 @@
 if not Qulight["misk"].raidutility == true then return end
 
 AnchorRaidUtilityPanel = CreateFrame("Frame","Move_RaidUtilityPanel",UIParent)
-AnchorRaidUtilityPanel:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 350, -5)
+AnchorRaidUtilityPanel:SetPoint("TOP", UIParent, "TOP", 50, -20)
 CreateAnchor(AnchorRaidUtilityPanel, "Move Raid Utility Panel", 125, 20)
 
 

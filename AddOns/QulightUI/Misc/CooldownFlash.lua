@@ -30,8 +30,8 @@ flash:SetScript("OnEvent", function()
 	flash:SetPoint("CENTER", Anchorflash)
 	flash:SetSize(scale(80),scale(80))
 	flash:SetBackdrop({
-	  bgFile = [[Interface\AddOns\QulightUI\Media\Other\solid]], 
-	  edgeFile = [[Interface\AddOns\QulightUI\Media\Other\solid]], 
+	  bgFile = [[Interface\AddOns\QulightUI\Root\Media\solid]], 
+	  edgeFile = [[Interface\AddOns\QulightUI\Root\Media\solid]], 
 	  tile = false, tileSize = 0, edgeSize = mult, 
 	  insets = { left = -mult, right = -mult, top = -mult, bottom = -mult}
 	})

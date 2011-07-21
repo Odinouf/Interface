@@ -2,7 +2,7 @@
 local mod	= DBM:NewMod("Atramedes", "DBM-BlackwingDescent")
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 6017 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 6200 $"):sub(12, -3))
 mod:SetCreatureID(41442)
 mod:SetModelID(34547)
 mod:SetZone()
@@ -74,7 +74,7 @@ function mod:OnCombatStart(delay)
 	timerAirphase:Start(90-delay)
 	shieldsLeft = 10
 	pesteredWarned = false
-	if mod:IsDifficulty("heroic10", "heroic25") then
+	if self:IsDifficulty("heroic10", "heroic25") then
 		berserkTimer:Start(-delay)
 	end
 	if self.Options.InfoFrame then
