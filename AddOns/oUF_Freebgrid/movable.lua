@@ -172,7 +172,8 @@ function ns:Anchors()
     setframe(raidframe)
     raidframe.ident = "Raid"
     raidframe.name:SetText("Raid")
-    raidframe:SetPoint("LEFT", UIParent, "LEFT", 8, 0)
+   -- raidframe:SetPoint("LEFT", UIParent, "LEFT", 8, 0)
+	raidframe:SetPoint("BOTTOM", UIParent, "LEFT", -116, 227)
     anchorpool["oUF_FreebgridRaidFrame"] = raidframe
 
     local petframe = CreateFrame("Frame", "oUF_FreebgridPetFrame", UIParent)
@@ -186,7 +187,8 @@ function ns:Anchors()
     setframe(mtframe)
     mtframe.ident = "MT"
     mtframe.name:SetText("MT")
-    mtframe:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 8, -60)
+    --mtframe:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 8, -60)
+	mtframe:SetPoint("LEFT", UIParent, "LEFT", 10, -97)
     anchorpool["oUF_FreebgridMTFrame"] = mtframe
 
     for _, frame in next, anchorpool do

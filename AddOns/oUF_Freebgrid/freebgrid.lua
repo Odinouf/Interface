@@ -647,7 +647,7 @@ oUF:Factory(function(self)
             local group = freebHeader("Raid_Freebgrid"..i, i)
             if i == 1 then
                 group:SetPoint(pos, "oUF_FreebgridRaidFrame", pos)
-            else
+			else
                 group:SetPoint(pos, raid[i-1], posRel, colX or 0, colY or 0)
             end
             raid[i] = group
@@ -655,8 +655,16 @@ oUF:Factory(function(self)
         end
     else
         local raid = freebHeader("Raid_Freebgrid")
-        raid:SetPoint(pos, "oUF_FreebgridRaidFrame", pos)
-        ns._Headers[raid:GetName()] = raid
+        if GetUnitName("player") == "Pywa" or "Aksha" then
+			if (GetActiveTalentGroup() == 2) then
+				raid:SetPoint("BOTTOM",UIParent, 0,227)
+			else
+				raid:SetPoint("TOPLEFT",UIParent, 10,-227)
+			end
+		else
+		raid:SetPoint(pos, "oUF_FreebgridRaidFrame", pos)
+		end
+		ns._Headers[raid:GetName()] = raid
     end
 
     if ns.db.pets then
@@ -668,8 +676,16 @@ oUF:Factory(function(self)
 
     if ns.db.MT then
         local tank = freebHeader("MT_Freebgrid", nil, nil, nil, true)
-        tank:SetPoint(pos, "oUF_FreebgridMTFrame", pos)
-        ns._Headers[tank:GetName()] = tank
+        if GetUnitName("player") == "Pywa" or "Aksha" then
+			if (GetActiveTalentGroup() == 2) then
+				tank:SetPoint("LEFT",UIParent, 10,100)
+			else
+				tank:SetPoint("LEFT",UIParent, 10,100)
+			end
+		else
+		tank:SetPoint(pos, "oUF_FreebgridRaidFrame", pos)
+		end
+		ns._Headers[tank:GetName()] = tank
 
         if oRA3 then
             tank:SetAttribute("initial-unitWatch", true)
